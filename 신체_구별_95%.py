@@ -20,8 +20,8 @@ for sheet in sheet_list:
 
 # 평균으로부터 2시그마를 벗어나는 데이터에 대해서 2시그마 내의 최대/최소값으로 대체함.
 for sheet_num in sheet_list:
-    df_norm[sheet_num][df_norm[sheet_num] > 1.96] = df_norm['19'][df_norm['19'] < 1.96].max()
-    df_norm[sheet_num][df_norm[sheet_num] < -1.96] = df_norm['19'][df_norm['19'] > -1.96].min()
+    df_norm[sheet_num][df_norm[sheet_num] > 1.96] = df_norm[sheet_num][df_norm[sheet_num] < 1.96].max()
+    df_norm[sheet_num][df_norm[sheet_num] < -1.96] = df_norm[sheet_num][df_norm[sheet_num] > -1.96].min()
 
 df_norm['sum'] = df_norm.sum(axis=1)
 df_norm['mean'] = df_norm.mean(axis=1)
